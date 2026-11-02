@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  helix-agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: helix-agent
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    volumes:
+      - ../helix_memory.db:/app/helix_memory.db
+      - ../helixcore.log:/app/helixcore.log

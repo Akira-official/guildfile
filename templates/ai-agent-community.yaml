@@ -1,0 +1,275 @@
+# ==============================================================================
+# HelixCore Community Blueprint: AI Agent & Developer Community
+# ==============================================================================
+metadata:
+  name: "Helix | AI Agent Community"
+  description: "Official community for Helix, AI agents, and builders."
+  version: "1.0.0"
+  author: "Vyoma Group"
+
+# ------------------------------------------------------------------------------
+# 1. Role Hierarchy (Ordered from highest to lowest priority)
+# ------------------------------------------------------------------------------
+roles:
+  - name: "Founder"
+    color: "#E74C3C"
+    hoist: true
+    mentionable: true
+    permissions:
+      administrator: true
+
+  - name: "Community Administrator"
+    color: "#E67E22"
+    hoist: true
+    mentionable: true
+    permissions:
+      manage_guild: true
+      manage_roles: true
+      manage_channels: true
+      kick_members: true
+      ban_members: true
+      moderate_members: true
+      view_audit_log: true
+
+  - name: "Core Developer"
+    color: "#9B59B6"
+    hoist: true
+    mentionable: true
+    permissions:
+      view_audit_log: true
+      manage_messages: true
+
+  - name: "Senior Moderator"
+    color: "#2ECC71"
+    hoist: true
+    mentionable: true
+    permissions:
+      manage_messages: true
+      kick_members: true
+      moderate_members: true
+
+  - name: "Moderator"
+    color: "#1ABC9C"
+    hoist: true
+    mentionable: true
+    permissions:
+      manage_messages: true
+      moderate_members: true
+
+  - name: "Support Specialist"
+    color: "#3498DB"
+    hoist: true
+    mentionable: true
+    permissions:
+      manage_messages: false
+
+  - name: "Ticket Support"
+    color: "#2980B9"
+    hoist: false
+    mentionable: true
+    permissions:
+      send_messages: true
+      read_message_history: true
+
+  - name: "Bots"
+    color: "#7289DA"
+    hoist: true
+    mentionable: false
+    permissions:
+      view_channel: true
+      send_messages: true
+
+  - name: "Early Access"
+    color: "#F1C40F"
+    hoist: true
+    mentionable: false
+
+  - name: "Beta Tester"
+    color: "#E67E22"
+    hoist: false
+    mentionable: false
+
+  - name: "Verified Member"
+    color: "#95A5A6"
+    hoist: false
+    mentionable: false
+
+  # Self-Assignable Interest Roles
+  - name: "Developer"
+    color: "#34495E"
+    hoist: false
+  - name: "Researcher"
+    color: "#16A085"
+    hoist: false
+  - name: "Creator Interest"
+    color: "#D35400"
+    hoist: false
+  - name: "Announcements Ping"
+    color: "#BDC3C7"
+    hoist: false
+  - name: "Events Ping"
+    color: "#BDC3C7"
+    hoist: false
+
+# ------------------------------------------------------------------------------
+# 2. Categories & Channels Tree
+# ------------------------------------------------------------------------------
+categories:
+  - name: "📌 ┆ START HERE"
+    channels:
+      - name: "👋・welcome"
+        type: "text"
+        topic: "Welcome to Helix Community! Review guides and onboarding."
+        read_only: true
+      - name: "📜・rules"
+        type: "text"
+        topic: "Official community guidelines and server terms."
+        read_only: true
+      - name: "📢・announcements"
+        type: "text"
+        topic: "Official news, milestones, and ecosystem updates."
+        read_only: true
+      - name: "🚀・release-notes"
+        type: "text"
+        topic: "Changelogs, SDK releases, and feature rollouts."
+        read_only: true
+      - name: "🧭・getting-started"
+        type: "text"
+        topic: "Quickstart checklist for building AI agents."
+        read_only: true
+      - name: "❓・faq"
+        type: "text"
+        topic: "Frequently asked questions and answers."
+        read_only: true
+
+  - name: "💬 ┆ COMMUNITY"
+    channels:
+      - name: "💬・general-chat"
+        type: "text"
+        topic: "General conversation about Helix, AI agents, and tech."
+        slowmode: 2
+      - name: "🤝・introductions"
+        type: "text"
+        topic: "Introduce yourself to the community!"
+      - name: "☕・off-topic"
+        type: "text"
+        topic: "Casual banter, memes, coffee, and daily life."
+      - name: "✨・showcase"
+        type: "forum"
+        topic: "Share projects, agent demos, and creative work."
+      - name: "💡・questions"
+        type: "forum"
+        topic: "Community Q&A and peer-to-peer debugging."
+
+  - name: "🛠️ ┆ HELIX SUPPORT"
+    channels:
+      - name: "📩・create-ticket"
+        type: "text"
+        topic: "Open a dedicated support or technical escalation ticket."
+        read_only: true
+      - name: "⚠️・known-issues"
+        type: "text"
+        topic: "Tracking active bugs and mitigation status."
+        read_only: true
+      - name: "🛡️・security-reports"
+        type: "text"
+        topic: "Responsible vulnerability disclosure instructions."
+        read_only: true
+      - name: "🎫・help-desk"
+        type: "forum"
+        topic: "Public community help threads."
+      - name: "🐛・bug-reports"
+        type: "forum"
+        topic: "Submit structured bug reports."
+      - name: "🎯・feature-requests"
+        type: "forum"
+        topic: "Propose and upvote new product capabilities."
+
+  - name: "💻 ┆ BUILDERS & DEVS"
+    channels:
+      - name: "⚡・developer-hub"
+        type: "text"
+        topic: "SDK discussion, code reviews, and API architecture."
+
+  - name: "🤖 ┆ AI & RESEARCH"
+    channels:
+      - name: "🧠・ai-agents"
+        type: "text"
+        topic: "Multi-agent systems, LLM evaluation, and prompt science."
+
+  - name: "🎉 ┆ EVENTS"
+    channels:
+      - name: "🎪・event-announcements"
+        type: "text"
+        topic: "Upcoming hackathons, workshops, and AMAs."
+        read_only: true
+      - name: "🔊・Community Lounge"
+        type: "voice"
+
+  - name: "🎫 ┆ TICKETS"
+    private: true
+    allowed_roles:
+      - "Ticket Support"
+      - "Support Specialist"
+      - "Moderator"
+      - "Senior Moderator"
+      - "Community Administrator"
+      - "Founder"
+    channels: []
+
+  - name: "🔒 ┆ STAFF & OPERATIONS"
+    private: true
+    allowed_roles:
+      - "Support Specialist"
+      - "Moderator"
+      - "Senior Moderator"
+      - "Core Developer"
+      - "Community Administrator"
+      - "Founder"
+    channels:
+      - name: "📢・staff-announcements"
+        type: "text"
+      - name: "💼・staff-chat"
+        type: "text"
+      - name: "📋・moderation-log"
+        type: "text"
+      - name: "🚨・member-reports"
+        type: "text"
+      - name: "🩺・support-triage"
+        type: "text"
+      - name: "📜・ticket-transcripts"
+        type: "text"
+      - name: "☣️・incident-response"
+        type: "text"
+      - name: "🎙️・Staff Meeting"
+        type: "voice"
+
+# ------------------------------------------------------------------------------
+# 3. Security & AutoMod Rules
+# ------------------------------------------------------------------------------
+automod:
+  - name: "Block Unapproved Discord Invites"
+    trigger_type: "keyword"
+    keyword_filter:
+      - "*discord.gg/*"
+      - "*discord.com/invite/*"
+    actions:
+      - "block_message"
+      - "send_alert_notice: #moderation-log"
+
+  - name: "Block Leaked API Keys & Secrets"
+    trigger_type: "regex"
+    regex_patterns:
+      - "(?i)(gsk_[a-zA-Z0-9]{48})"
+      - "(?i)(sk-[a-zA-Z0-9]{48})"
+      - "(?i)(AKIA[0-9A-Z]{16})"
+    actions:
+      - "block_message"
+      - "send_alert_notice: #moderation-log"
+
+  - name: "Anti-Mention Spam"
+    trigger_type: "mention_spam"
+    mention_limit: 4
+    actions:
+      - "block_message"
+      - "timeout_member: 300"

@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "helixcore"
+version = "1.0.0"
+description = "Declarative Discord Server Provisioner & Autonomous Antigravity AI Agent Harness"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Vyoma Group / Helix Community", email = "community@vyoma.dev" }
+]
+keywords = [
+    "discord",
+    "discord-bot",
+    "infrastructure-as-code",
+    "ai-agent",
+    "antigravity",
+    "groq",
+    "automod",
+    "community-automation"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Communications :: Chat",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.14"
+]
+requires-python = ">=3.10"
+dependencies = [
+    "discord.py>=2.3.2",
+    "openai>=1.12.0",
+    "pydantic>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.1",
+    "rich>=13.7.0",
+    "psutil>=5.9.8",
+    "aiohttp>=3.9.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.3.0",
+    "black>=24.0.0"
+]
+
+[project.scripts]
+helixcore = "src.cli.main:cli_entrypoint"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [".venv", "build", "dist"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
