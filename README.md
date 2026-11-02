@@ -1,156 +1,98 @@
 <div align="center">
 
-# 🌐 HelixCore
-### Declarative Discord Server Provisioner & Autonomous Antigravity AI Agent Harness
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=230&section=header&text=guildfile&fontSize=78&fontColor=ffffff&animation=twinkling&fontAlignY=36&desc=Dockerfile%20for%20your%20Discord%20server&descSize=22&descAlignY=58" alt="guildfile banner" />
 
-[![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-3776AB?logo=python&logoColor=white)](https://python.org)
-[![Discord.py](https://img.shields.io/badge/Discord.py-v2.3.2-5865F2?logo=discord&logoColor=white)](https://discordpy.readthedocs.io)
-[![Groq Cloud](https://img.shields.io/badge/Powered%20By-Groq%20LPU-f55036?logo=groq&logoColor=white)](https://groq.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<a href="https://github.com/Akira-official/guildfile">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3200&pause=900&color=5865F2&center=true&vCenter=true&width=720&height=50&lines=25+roles.+8+categories.+1+YAML+file.;Define+your+Discord+server+as+code.;guild+apply+%E2%80%94+and+your+server+is+live.;Idempotent.+Declarative.+AI-ready." alt="Typing animation" />
+</a>
 
-*Set up production-grade, enterprise-hardened Discord servers in 3 minutes using Infrastructure-as-Code manifests, paired with a hyper-human, autonomous AI community companion.*
+<br/>
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%20|%203.11%20|%203.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![discord.py](https://img.shields.io/badge/discord.py-2.x-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discordpy.readthedocs.io)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](docker/)
+[![Status](https://img.shields.io/badge/status-alpha-orange?style=for-the-badge)](#-roadmap)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-[Quickstart](#-quickstart-guide-in-5-minutes) • [Architecture](#-architecture--how-it-works) • [Blueprint Engine](#-declarative-blueprint-engine) • [Helix AI Companion](#-the-helix-ai-companion) • [Documentation Index](#-documentation-index) • [Docker](#-docker-deployment) • [FAQ](#-frequently-asked-questions)
+<br/>
+
+**[⚡ Quickstart](#-quickstart)** · **[📜 Blueprint](#-the-guildfile)** · **[🧩 Features](#-features)** · **[🔌 MCP](#-mcp-control-your-server-from-your-ai-assistant)** · **[🤖 Helix](#-optional-helix-ai-companion)** · **[🐳 Docker](#-docker)** · **[❓ FAQ](#-faq)**
 
 </div>
 
 ---
 
-## 💡 Why HelixCore?
+## 🎬 See it in action
 
-Setting up a modern, enterprise-grade Discord server takes **15–20 hours** of manual clicking:
-- Creating 25+ roles with precise colors and permission bitmasks.
-- Configuring isolated category permissions for staff and moderation teams.
-- Setting up complex regex AutoMod rules to block token leaks and invite spam.
-- Configuring ticket desks, onboarding questions, and forum tags.
-- Most existing Discord bots are bloated with ads, lock essential features behind expensive monthly paywalls (MEE6), or send stiff, robotic Wikipedia summaries.
+<div align="center">
 
-**HelixCore provides a complete, modern open-source alternative:**
-1. **Infrastructure-as-Code (IaC) for Discord**: Define your entire server architecture in a clean, human-readable YAML blueprint. Apply it idempotently in seconds without wiping existing channels or messages.
-2. **Autonomous AI Companion ("Helix")**: Powered by Groq LPUs (`openai/gpt-oss-120b`), Helix chats with authentic human-like behavior: rapid-fire multi-message burst typing, dynamic mood swings, Hinglish/English code-switching, SQLite relationship memory, multimodal meme roasting, and Discord presence cycling.
-3. **Built for Agentic AI Pair-Programming**: Engineered to integrate seamlessly with Google Antigravity, Cursor, and Claude Code via structured documentation and CLI harnesses.
+<!-- Record a 15s terminal GIF (guild doctor -> guild diff -> guild apply) and save it as assets/demo.gif -->
+<img src="assets/demo.gif" alt="guild apply building a full Discord server in seconds" width="90%" />
+
+</div>
 
 ---
 
-## 🏗️ Architecture & How It Works
+## 💥 Why this exists
 
-```text
- ┌────────────────────────────────────────────────────────────────────────┐
- │                           USER & DEVELOPER                             │
- └───────────────────┬────────────────────────────────┬───────────────────┘
-                     │                                │
-        [ Declarative Blueprint YAML ]        [ Chat Interaction ]
-                     │                                │
-                     ▼                                ▼
- ┌──────────────────────────────────────┐  ┌──────────────────────────────────────┐
- │          PROVISIONING SUBSYSTEM      │  │        AUTONOMOUS AGENT SUBSYSTEM    │
- ├──────────────────────────────────────┤  ├──────────────────────────────────────┤
- │  • Blueprint Loader (YAML / JSON)    │  │  • Discord Gateway Event Listener    │
- │  • Pydantic Schema Validation        │  │  • SQLite Social Graph (Memory DB)   │
- │  • Idempotent State Diff Engine      │  │  • Dynamic Persona & Mood Engine     │
- │  • Role Hierarchy Synchronizer       │  │  • Hinglish/English Code-Switcher    │
- │  • Category & Channel Provisioner    │  │  • Groq LPU Inference (OSS-120B)    │
- │  • Baseline Security Hardening       │  │  • Multimodal Meme Vision Roaster    │
- │  • AutoMod RegEx Rules Injector      │  │  • Burst Typing Simulator            │
- └───────────────────┬──────────────────┘  └──────────────────┬───────────────────┘
-                     │                                        │
-                     └───────────────────┬────────────────────┘
-                                         │
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │         Discord REST & Gateway       │
-                      │     (discord.py Async Runtime)       │
-                      └──────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │       Live Discord Community         │
-                      └──────────────────────────────────────┘
-```
+Setting up a serious Discord server by hand means **15-20 hours** of clicking: 25+ roles, permission overrides on every category, AutoMod rules, onboarding questions, ticket channels. One wrong toggle and a staff channel is public.
+
+**guildfile** treats your server like infrastructure:
+
+- 📄 **One YAML file** describes roles, categories, channels, permissions, AutoMod and onboarding.
+- 🔁 **Idempotent**: `guild apply` only creates or updates what changed. Existing messages stay untouched.
+- 🔍 **Diff before you deploy**: `guild diff` shows exactly what will change.
+- 🧪 **Reusable templates**: clone a ready blueprint, tweak, apply.
+
+> Think **Terraform / Dockerfile, but for Discord.**
 
 ---
 
-## 🚀 Quickstart Guide (in 5 Minutes)
+## ⚡ Quickstart
 
-### 1. Prerequisites
-- **Python 3.10, 3.11, or 3.12** installed on your system.
-- A **Discord Bot Token** from the [Discord Developer Portal](https://discord.com/developers/applications):
-  * Under the **Bot** tab, enable **`Message Content Intent`** and **`Server Members Intent`**.
-  * Invite the bot to your server with `Administrator` permissions.
-- A free **Groq API Key** from the [Groq Console](https://console.groq.com/keys).
-
-### 2. Clone & Install
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/HelixCore.git
-cd HelixCore
-
-# Create and activate a virtual environment
-python -m venv .venv
-
-# Windows (PowerShell):
-.venv\Scripts\Activate.ps1
-# Linux / macOS:
-source .venv/bin/activate
-
-# Install in editable mode
+# 1. Install
+git clone https://github.com/Akira-official/guildfile.git
+cd guildfile
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 pip install -e .
+
+# 2. Configure
+cp .env.example .env     # add your bot token + guild ID
+
+# 3. Check, preview, deploy
+guild doctor
+guild diff  --blueprint templates/ai-agent-community.yaml
+guild apply --blueprint templates/ai-agent-community.yaml
 ```
 
-### 3. Configure Credentials
-Copy `.env.example` to `.env`:
-```bash
-cp .env.example .env
-```
-Open `.env` and fill in your keys:
+**`.env` example (use your own values, never commit this file):**
+
 ```env
-DISCORD_TOKEN=MTU2NjU2...
-DISCORD_GUILD_ID=1564658375613091890
-GROQ_API_KEY=gsk_nPBk38...
+DISCORD_TOKEN=YOUR_DISCORD_BOT_TOKEN
+DISCORD_GUILD_ID=000000000000000000
+GROQ_API_KEY=YOUR_GROQ_API_KEY      # only needed for the optional Helix agent
 ```
 
-### 4. Verify System Health (`doctor`)
-Run the automated environment and database check:
-```bash
-helixcore doctor
-```
-```text
-🔍 Running HelixCore Doctor System Diagnostics...
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ [DISCORD_TOKEN]: Configured (Length: 72)
-✅ [DISCORD_GUILD_ID]: Configured (1564658375613091890)
-✅ [GROQ_API_KEY]: Configured (Length: 56)
-✅ [SQLITE_ENGINE]: Verified functional (In-Memory & Persistent Ready)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Diagnostics Complete!
-```
+<details>
+<summary><b>🔑 Discord bot setup (2 minutes)</b></summary>
 
-### 5. Provision the Server with a Blueprint (`apply`)
-Apply the official AI Agent Community template:
-```bash
-helixcore apply --blueprint templates/ai-agent-community.yaml
-```
+1. Create an app in the [Discord Developer Portal](https://discord.com/developers/applications).
+2. Under **Bot**, enable **Server Members Intent** (and **Message Content Intent** if you run the Helix agent).
+3. Invite the bot to your server with the permissions your blueprint needs (Administrator is the easiest for first setup).
 
-### 6. Launch the Helix AI Companion (`agent`)
-Start Helix in your server:
-```bash
-helixcore agent
-```
+</details>
 
 ---
 
-## 📜 Declarative Blueprint Engine
+## 📜 The Guildfile
 
-Blueprints are human-readable YAML documents defining your server's entire hierarchy and permissions.
+Your whole server in one readable file:
 
-### Example Blueprint Snippet
 ```yaml
 metadata:
-  name: "Helix | AI Agent Community"
-  description: "Official community for AI agents, developers, and builders."
+  name: "My Community"
   version: "1.0.0"
 
 roles:
@@ -160,157 +102,245 @@ roles:
     permissions:
       administrator: true
 
-  - name: "Community Administrator"
-    color: "#E67E22"
+  - name: "Moderator"
+    color: "#3498DB"
     hoist: true
     permissions:
-      manage_guild: true
-      manage_roles: true
-      manage_channels: true
-
-  - name: "Ticket Support"
-    color: "#3498DB"
-    hoist: false
+      manage_messages: true
+      kick_members: true
 
 categories:
   - name: "📌 ┆ START HERE"
     channels:
-      - name: "👋・welcome"
-        type: "text"
-        read_only: true
-      - name: "📜・rules"
-        type: "text"
-        read_only: true
+      - { name: "👋・welcome", type: text, read_only: true }
+      - { name: "📜・rules",   type: text, read_only: true }
 
   - name: "💬 ┆ COMMUNITY"
     channels:
-      - name: "💬・general-chat"
-        type: "text"
-        slowmode: 2
-      - name: "✨・showcase"
-        type: "forum"
-      - name: "🔊・Community Lounge"
-        type: "voice"
+      - { name: "💬・general", type: text, slowmode: 2 }
+      - { name: "✨・showcase", type: forum }
+      - { name: "🔊・lounge",   type: voice }
 
-  - name: "🔒 ┆ STAFF & OPERATIONS"
+  - name: "🔒 ┆ STAFF"
     private: true
-    allowed_roles:
-      - "Founder"
-      - "Community Administrator"
-      - "Ticket Support"
+    allowed_roles: ["Founder", "Moderator"]
     channels:
-      - name: "💼・staff-chat"
-        type: "text"
-      - name: "📜・ticket-transcripts"
-        type: "text"
+      - { name: "💼・staff-chat", type: text }
 ```
 
-> 📖 **Full Blueprint Documentation**: Check out [`docs/BLUEPRINT_SCHEMA.md`](docs/BLUEPRINT_SCHEMA.md) for all supported fields, permission bitmasks, and AutoMod triggers.
+📖 Full reference: [`docs/blueprint-schema.md`](docs/blueprint-schema.md)
 
 ---
 
-## 🤖 The Helix AI Companion
+## 🧩 Features
 
-Helix is engineered to overcome every flaw of traditional AI chatbots:
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### 1. Multi-Message "Burst" Typing
-Real humans send rapid-fire mini messages instead of walls of text:
+### 🏗️ Declarative provisioning
+Roles, colors, permission overrides, categories, channels, forum tags and webhooks from YAML or JSON, validated with Pydantic.
+
+</td>
+<td width="50%" valign="top">
+
+### 🔁 Idempotent sync
+State diff between your blueprint and the live server. Create what is missing, update what changed, leave the rest alone.
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 🛡️ Secure defaults
+Hardened `@everyone` baseline, private staff categories, and AutoMod rules for invite links, token leaks, mention spam and scam patterns.
+
+</td>
+<td valign="top">
+
+### 🎟️ Onboarding & tickets
+Onboarding questions and default channels, plus a ticket setup with private channels, transcript archive and staff roles.
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 🩺 `guild doctor`
+Health check for token, intents, guild access, rate limits and database integrity before you deploy.
+
+</td>
+<td valign="top">
+
+### 🔌 MCP server
+Let Claude Code, Cursor or Antigravity inspect and manage your server in plain English.
+
+</td>
+</tr>
+</table>
+
+> ⚠️ **Heads up:** a few Discord features (parts of Onboarding and some AutoMod options) are only partially configurable through the public API. Each template documents what is automated and what needs a manual click.
+
+---
+
+## 🏛️ Architecture
+
+```mermaid
+flowchart LR
+    A[📄 Guildfile YAML] --> B[✅ Schema validation]
+    B --> C[🔍 State diff engine]
+    C --> D[🏗️ Builders<br/>roles · channels · automod · onboarding]
+    D --> E[(🌐 Discord REST API)]
+    F[🤖 AI assistant<br/>Claude Code / Cursor / Antigravity] -. MCP .-> G[🔌 MCP server]
+    G --> E
+    H[💬 Helix companion<br/>optional] --> E
+```
+
+---
+
+## 🔌 MCP: control your server from your AI assistant
+
+Expose your server to any MCP-compatible assistant and manage it in plain English:
+
 ```text
-[8:15 AM] Akira: yo helix are you awake?
-[8:15 AM] Helix: yeah what's up?
+"Lock #general for 30 minutes."
+"Audit role permissions and report any privilege leaks."
+"Post a release announcement for v2.0 in #announcements."
+```
+
+📖 Setup guide: [`docs/mcp-integration.md`](docs/mcp-integration.md)
+
+---
+
+## 🗂️ Templates
+
+| Template | Best for | Highlights |
+| :-- | :-- | :-- |
+| 🤖 `ai-agent-community` | AI and builder communities | Showcase forum, support tickets, staff ops |
+| 👨‍💻 `developer-dao` | Open-source teams | GitHub webhook channels, bounty board, dev hubs |
+| 🎮 `gaming-clan` | Clans and guilds | Voice rooms, scrims, clip showcase |
+| 🎨 `creator-studio` | Creators | Tier perks, fan lounge, announcements |
+| 🌱 `minimal-community` | Quick start | Small, clean, safe baseline |
+
+---
+
+## 🤖 Optional: Helix AI Companion
+
+Want a community bot that does not sound like a robot? The optional **Helix** module adds:
+
+| | |
+| :-- | :-- |
+| 💬 **Burst typing** | Replies split into 2-3 short messages with natural delays |
+| 🧠 **Memory** | SQLite social graph: nicknames, closeness, inside jokes (stored locally) |
+| 🎭 **Moods** | `chill`, `annoyed`, `petty`, `boss`, `late_night_chaotic` |
+| 🗣️ **Code-switching** | English, Hinglish and slang |
+| 🖼️ **Vision** | Reacts to screenshots and memes via a multimodal model |
+| 🟢 **Presence cycler** | Rotating Playing / Listening / Watching status |
+
+```text
+[8:15 AM] dev_user: yo helix, you awake?
+[8:15 AM] Helix: yeah what's up
 [8:15 AM] Helix: spit it out, i'm all ears
 ```
 
-### 2. Multimodal Meme Vision (Roasting)
-Upload a photo, selfie, gameplay clip, or buggy code screenshot into `#general-chat`:
-* Helix automatically inspects the image using Groq multimodal vision (`qwen-2.5-32b`).
-* It drops an instant, witty critique or roast:
-  > *"who told you to upload this blurfest 💀 looks like you took this screenshot with a microwave"*
+> 🏷️ Helix is clearly a **bot**: it carries Discord's BOT tag and does not pretend to be a person. Please follow the [Discord Developer Terms](https://discord.com/developers/docs/policies-and-agreements/developer-terms-of-service) when you deploy it.
 
-### 3. Cultural Code-Switching (English / Hinglish / Slang)
-* Automatically detects language markers (`bhai`, `kya`, `scene`, `samjha`) and code-switches organically:
-  > *"are bhai, diamond mine kar raha hu... tu bata tera code compile hua ya abhi bhi line 0 pe atka hai? 💀"*
+LLM provider: **Groq by default**, with OpenAI-compatible endpoints and local Ollama supported.
 
-### 4. SQLite Social Graph & Relationship Memory
-* Remembers user closeness scores (0–100), personalized nicknames, and shared inside jokes across server restarts.
-* Features an **anti-repetition engine** that blacklists overused jokes from previous turns.
-
-### 5. Dynamic Presence Cycling
-* In the background, Helix rotates its rich presence every few minutes:
-  * 🎮 Playing: `Minecraft (mining diamonds 💎)`
-  * 🎮 Playing: `VALORANT (bottom fragging 💀)`
-  * 🎧 Listening to: `Spotify - 3hr video essay`
-  * 📺 Watching: `people take Ls in 4K`
-
-> 📖 **Full Agent Realism Deep Dive**: Read [`docs/AGENT_HARNESS.md`](docs/AGENT_HARNESS.md).
+```bash
+guild agent
+```
 
 ---
 
-## 📚 Documentation Index
+## 🐳 Docker
 
-For in-depth developer and agent documentation, explore the [`docs/`](docs/) directory:
-
-| Document | Description |
-| :--- | :--- |
-| **[`docs/AI_AGENT_INSTRUCTIONS.md`](docs/AI_AGENT_INSTRUCTIONS.md)** | Mandatory guide for AI coding agents (Antigravity, Cursor, Claude Code) working on HelixCore. |
-| **[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)** | Deep architectural specifications, pipeline diagrams, database schemas, and performance specs. |
-| **[`docs/BLUEPRINT_SCHEMA.md`](docs/BLUEPRINT_SCHEMA.md)** | Complete YAML/JSON schema reference for roles, categories, channels, permissions, and AutoMod. |
-| **[`docs/AGENT_HARNESS.md`](docs/AGENT_HARNESS.md)** | Detailed breakdown of burst typing, mood algorithms, Hinglish switching, and multimodal vision. |
-| **[`docs/CLI_REFERENCE.md`](docs/CLI_REFERENCE.md)** | Manual for the `helixcore` command line interface, flags, and environment variables. |
-| **[`docs/ANTIGRAVITY_INTEGRATION.md`](docs/ANTIGRAVITY_INTEGRATION.md)** | Guide on controlling and extending HelixCore via Google Antigravity agentic workflows. |
-
----
-
-## 🐳 Docker Deployment
-
-Self-host HelixCore 24/7 on any cloud VPS (AWS, DigitalOcean, Railway, or Raspberry Pi) with Docker Compose:
+Run 24/7 on any VPS, Railway or a Raspberry Pi:
 
 ```bash
 cd docker
 docker compose up -d --build
 ```
 
-Your persistent SQLite memory graph (`helix_memory.db`) and rotating logs (`helixcore.log`) mount directly to the host machine for seamless backups.
+SQLite memory and logs are mounted to the host, so backups are a simple file copy.
 
 ---
 
-## ❓ Frequently Asked Questions
+## 🗺️ Roadmap
+
+- [ ] Blueprint schema + Pydantic validation
+- [ ] `guild diff` and idempotent `guild apply`
+- [ ] Export an existing server to a Guildfile (`guild export`)
+- [ ] MCP server tools (audit, lock, announce)
+- [ ] `guild doctor` full diagnostics
+- [ ] Multi-guild memory for Helix
+- [ ] Docker one-click deploy
+- [ ] More community templates
+
+Have an idea? [Open an issue](../../issues/new) 💡
+
+---
+
+## ❓ FAQ
 
 <details>
-<summary><b>Q: Does running <code>helixcore apply</code> wipe existing chat messages?</b></summary>
-<b>No!</b> The Provisioning Engine is strictly idempotent. It inspects existing categories and channels and only creates missing elements or updates permissions. Existing message history is completely untouched.
+<summary><b>Does <code>guild apply</code> delete my messages?</b></summary>
+<br/>
+No. Apply is idempotent: it creates missing items and updates changed permissions. Message history is never touched.
 </details>
 
 <details>
-<summary><b>Q: Why do I get <code>PrivilegedIntentsRequired</code> error?</b></summary>
-You must enable <b>Message Content Intent</b> in your bot's settings on the <a href="https://discord.com/developers/applications">Discord Developer Portal</a> under the <b>Bot</b> tab. Helix requires this intent to read and respond to chat messages.
+<summary><b>I get <code>PrivilegedIntentsRequired</code></b></summary>
+<br/>
+Enable the required intents (Server Members, and Message Content for Helix) on your bot's page in the Discord Developer Portal.
 </details>
 
 <details>
-<summary><b>Q: Can I use OpenAI or Anthropic models instead of Groq?</b></summary>
-Yes! HelixCore uses an OpenAI-compatible interface. If you provide an <code>OPENAI_API_KEY</code> without a Groq key, it seamlessly routes requests to OpenAI.
+<summary><b>Can I use OpenAI, Claude or Ollama instead of Groq?</b></summary>
+<br/>
+Yes. The agent uses a provider abstraction, so you can switch via environment variables.
 </details>
+
+<details>
+<summary><b>Is my data sent anywhere?</b></summary>
+<br/>
+Conversation memory is stored locally in SQLite. Only the text you send to your chosen LLM provider leaves your machine.
+</details>
+
+---
+
+## 🔒 Security
+
+- Never commit `.env` or tokens. Use the provided `.env.example`.
+- Run with the minimum Discord permissions and intents your blueprint needs.
+- Found a vulnerability? See [`SECURITY.md`](SECURITY.md).
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions of all kinds! Check out our [Contributing Guide](CONTRIBUTING.md) to get started.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feat/amazing-feature`)
-3. Commit your Changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the Branch (`git push origin feat/amazing-feature`)
+1. Fork the repo
+2. `git checkout -b feat/amazing-feature`
+3. `git commit -m "feat: add amazing feature"`
+4. `git push origin feat/amazing-feature`
 5. Open a Pull Request
 
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
+Read the [Contributing Guide](CONTRIBUTING.md) first.
 
 ---
+
+## ⭐ Star History
 
 <div align="center">
-Built with ❤️ by the <b>Helix Community</b> & <b>Vyoma Group</b>.
+
+<a href="https://star-history.com/#Akira-official/guildfile&Date">
+  <img src="https://api.star-history.com/svg?repos=Akira-official/guildfile&type=Date" alt="Star History Chart" width="75%" />
+</a>
+
+### If this saved you hours, drop a ⭐. It helps a lot.
+
+📄 Released under the [MIT License](LICENSE) · Built by [Akira](https://github.com/Akira-official) & [Vyoma Group](https://vyomagroup.online)
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=120&section=footer" alt="footer" />
+
 </div>
