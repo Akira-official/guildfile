@@ -61,6 +61,61 @@ def cmd_doctor():
     print("━" * 50 + "\nDiagnostics Complete!\n")
 
 
+def cmd_diff(blueprint_path: str):
+    """Compares the blueprint against target guild and previews additions/updates."""
+    load_dotenv()
+    token = os.getenv("DISCORD_TOKEN")
+    guild_id = os.getenv("DISCORD_GUILD_ID")
+
+    if not token or not guild_id:
+        logger.error("Please configure DISCORD_TOKEN and DISCORD_GUILD_ID in .env")
+        return
+
+    blueprint = load_blueprint(blueprint_path)
+    print(f"\n🔍 Calculating Blueprint Diff for: '{blueprint.metadata.name}' v{blueprint.metadata.version}\n" + "━" * 60)
+
+    intents = discord.Intents.default()
+    client = discord.Client(intents=intents)
+
+    @client.event
+    async def on_ready():
+        guild = client.get_guild(int(guild_id))
+        if not guild:
+            logger.error(f"Guild {guild_id} not found.")
+            await client.close()
+            return
+
+        existing_role_names = {r.name for r in guild.roles}
+        existing_cat_names = {c.name for c in guild.categories}
+        existing_ch_names = {c.name for c in guild.channels}
+
+        print("[Roles Diff]:")
+        for r in blueprint.roles:
+            if r.name in existing_role_names:
+                print(f"  [~] Update Role: @{r.name} (exists)")
+            else:
+                print(f"  [+] Create Role: @{r.name} (color: {r.color})")
+
+        print("\n[Categories & Channels Diff]:")
+        for cat in blueprint.categories:
+            if cat.name in existing_cat_names:
+                print(f"  [~] Category: {cat.name} (exists)")
+            else:
+                print(f"  [+] Create Category: {cat.name} (private: {cat.private})")
+
+            for ch in cat.channels:
+                if ch.name in existing_ch_names:
+                    print(f"      [~] Channel: #{ch.name} (exists)")
+                else:
+                    print(f"      [+] Create Channel: #{ch.name} ({ch.type})")
+
+        print("\n" + "━" * 60)
+        print("Diff complete. Run 'guild apply' to apply these changes.")
+        await client.close()
+
+    asyncio.run(client.start(token))
+
+
 def cmd_apply(blueprint_path: str):
     """Parses blueprint and provisions the target Discord server."""
     load_dotenv()
@@ -134,6 +189,12 @@ def cli_entrypoint():
     # Doctor
     subparsers.add_parser("doctor", help="Run system and environment diagnostics")
 
+    # Diff
+    diff_parser = subparsers.add_parser("diff", help="Preview blueprint changes against live Discord guild")
+    diff_parser.add_argument(
+        "--blueprint", "-b", required=True, help="Path to YAML/JSON blueprint file"
+    )
+
     # Apply
     apply_parser = subparsers.add_parser("apply", help="Apply a blueprint to a Discord guild")
     apply_parser.add_argument(
@@ -146,6 +207,8 @@ def cli_entrypoint():
     args = parser.parse_args()
     if args.command == "doctor":
         cmd_doctor()
+    elif args.command == "diff":
+        cmd_diff(args.blueprint)
     elif args.command == "apply":
         cmd_apply(args.blueprint)
     elif args.command == "agent":

@@ -3,13 +3,14 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "helixcore"
+name = "guildfile"
 version = "1.0.0"
-description = "Declarative Discord Server Provisioner & Autonomous Antigravity AI Agent Harness"
+description = "Define your Discord server as code. Declarative Discord Server Provisioner & Autonomous AI Agent Harness"
 readme = "README.md"
 license = { text = "MIT" }
 authors = [
-    { name = "Vyoma Group / Helix Community", email = "community@vyoma.dev" }
+    { name = "Akira", email = "150173544+Akira-official@users.noreply.github.com" },
+    { name = "Vyoma Group", email = "community@vyoma.dev" }
 ]
 keywords = [
     "discord",
@@ -54,6 +55,8 @@ dev = [
 ]
 
 [project.scripts]
+guild = "src.cli.main:cli_entrypoint"
+guildfile = "src.cli.main:cli_entrypoint"
 helixcore = "src.cli.main:cli_entrypoint"
 
 [tool.ruff]
