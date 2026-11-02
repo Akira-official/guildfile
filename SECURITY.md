@@ -21,3 +21,4 @@ Instead, please responsibly disclose it by emailing:
 - Potential impact on servers or members.
 
 We will review your submission and respond within **24 hours**.
+
