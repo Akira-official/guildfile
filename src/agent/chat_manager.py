@@ -132,3 +132,4 @@ class ChatManager:
         if len(parts) >= 2:
             return parts[:2]
         return [text]
+

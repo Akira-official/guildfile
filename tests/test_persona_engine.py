@@ -21,3 +21,4 @@ def test_extract_banned_topics():
     banned = persona.extract_banned_topics(history)
     assert "coffee" in banned
     assert "sleepyhead" in banned
+

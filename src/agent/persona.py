@@ -83,3 +83,4 @@ Output your response as a single, authentic Discord chat message.
             if any(trope in m for m in bot_messages):
                 banned.add(trope)
         return list(banned)
+

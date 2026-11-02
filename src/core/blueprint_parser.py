@@ -65,3 +65,4 @@ def load_blueprint(path: str) -> BlueprintSchema:
         data = yaml.safe_load(f)
 
     return BlueprintSchema.model_validate(data)
+

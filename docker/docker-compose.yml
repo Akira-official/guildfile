@@ -12,3 +12,4 @@ services:
     volumes:
       - ../helix_memory.db:/app/helix_memory.db
       - ../helixcore.log:/app/helixcore.log
+

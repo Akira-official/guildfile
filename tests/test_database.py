@@ -30,3 +30,4 @@ def test_record_interaction_and_history(temp_db):
     assert len(history) == 2
     assert history[0]["content"] == "hello world"
     assert history[1]["content"] == "sup bro"
+

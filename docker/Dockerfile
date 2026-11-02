@@ -24,3 +24,4 @@ COPY pyproject.toml .
 RUN pip install --no-cache-dir -e .
 
 CMD ["python", "-m", "src.cli.main", "agent"]
+

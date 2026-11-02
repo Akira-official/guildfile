@@ -66,3 +66,4 @@ Thank you for your interest in contributing to **HelixCore**! We welcome contrib
 3. Link relevant issues (`Closes #12`).
 4. Ensure CI tests pass on all supported Python versions (3.10–3.12).
 5. A maintainer will review your PR within 48 hours!
+

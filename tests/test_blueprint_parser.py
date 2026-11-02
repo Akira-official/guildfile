@@ -20,3 +20,4 @@ def test_load_valid_blueprint():
 def test_missing_blueprint_raises_error():
     with pytest.raises(FileNotFoundError):
         load_blueprint("non_existent_file.yaml")
+

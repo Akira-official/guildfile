@@ -17,3 +17,4 @@ Fixes #(issue)
 - [ ] New and existing unit tests pass locally with my changes (`pytest`).
 - [ ] I have updated the documentation accordingly (`README.md` / `plan.md`).
 - [ ] My changes do not expose API keys, Discord tokens, or private secrets.
+

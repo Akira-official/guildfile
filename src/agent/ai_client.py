@@ -101,3 +101,4 @@ class AIClient:
         except Exception as e:
             logger.error(f"Vision analysis failed: {e}")
             return "who told you to upload this blurfest 💀"
+

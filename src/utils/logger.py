@@ -50,3 +50,4 @@ def setup_logger(name: str = "HelixCore", log_file: str = "helixcore.log") -> lo
         logger.warning(f"Could not initialize file logger: {e}")
 
     return logger
+

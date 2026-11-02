@@ -39,3 +39,4 @@ class StatusCycler:
             except Exception as e:
                 logger.warning(f"Could not change presence: {e}")
             await asyncio.sleep(interval_seconds)
+
